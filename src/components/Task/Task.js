@@ -9,12 +9,12 @@ const Task = ({ tache }) => {
     const dispatch = useDispatch();
     const edit = () => {
         setEditedTask(!editedTask)
-        dispatch(editTask(tache.id, editedTask))
+        dispatch(editTask(tache.id, !editedTask))
     }
 
     return (
         <div>
-            <Alert variant={(editedTask) ? "warning" : "success"} onClick={() => edit()} className="alert" >
+            <Alert variant={(editedTask) ? "success" : "warning"} onClick={() => { edit(); console.log(tache) }} className="alert" >
                 {tache.task}
             </Alert>
         </div >
